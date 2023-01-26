@@ -24,37 +24,40 @@
 <section>
   <h1>Proportionate</h1>
   <br>
-	<label>
-    <EmojiIcon defaultIcon={'☕️'} pid={'a'} />
-
+	<div class='ingredient-row'>
     <input type=number bind:value={a} min=1 max=20>
-      <div class='result-container'>
-        <span class='result'>{a}</span>
-        <span class='unit-measure'>g</span>
-      </div>
-    <br>
-    <span class='icon'></span>
+    <div class='result-container'>
+      <span class='result'>{a}</span>
+      <span class='unit-measure'>g</span>
+    </div>
+    <EmojiIcon defaultIcon={'☕️'} pid={'a'} />
+  </div>
+
+  <div class='ingredient-row slider'>
     <input type=range bind:value={a} min=1 max=20>
-  </label>
+  </div>
+
+  <br>
   
-  <label>
-    <EmojiIcon defaultIcon={'💧'} pid={'b'}/>
-    
+  <div class='ingredient-row'>
     <input type=number bind:value={bMultiplier} min=1 max=200>
     <div class='result-container'>
-        <span class='result'>{b || 0}</span>
-        <span class='unit-measure'>ml</span>
-      </div>
-  </label>
+      <span class='result'>{b || 0}</span>
+      <span class='unit-measure'>ml</span>
+    </div>
 
-  <label>
-    <EmojiIcon defaultIcon={'🥛'} pid={'c'}/>
+    <EmojiIcon defaultIcon={'💧'} pid={'b'}/>
+  </div>
+
+  <div class='ingredient-row'>
     <input type=number bind:value={cMultiplier} min=0 max=200>
-      <div class='result-container'>
-        <span class='result'>{c || 0}</span>
-        <span class='unit-measure'>ml</span>
-      </div>
-  </label>
+    <div class='result-container'>
+      <span class='result'>{c || 0}</span>
+      <span class='unit-measure'>ml</span>
+    </div>
+
+    <EmojiIcon defaultIcon={'🥛'} pid={'c'}/>
+  </div>
 </section>
 
 <style>
@@ -63,7 +66,7 @@
     flex-direction: column;
     justify-content: center;
     flex: 0.2;
-    width: 300px;
+    width: fit-content;
     margin: 0 auto;
 	}
 
@@ -75,30 +78,24 @@
     display: none;
   }
 
-  .pickerContainer {
-    position: absolute;
-    top: 360px;
+  .ingredient-row {
+    display: inline-block;
+  }
+  .ingredient-row.slider input {
+    padding: 0;
+    width: 100%;
   }
 
   .result-container {
     display: inline-flex;
-    width: 70px;
+    width: 94px;
   }
 
-  .icon, .result {
+  .result {
     display: inline-block;
     height: 24px;
     text-align: center;
     line-height: 24px;
-  }
-
-  .icon {
-    width: 24px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  .result {
     background-color: white;
     margin-left: 8px;
     border: 1px solid #000000;

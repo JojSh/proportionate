@@ -3,6 +3,9 @@
   import { createPicker } from 'picmo';
 
   export let defaultIcon;
+  /**
+	 * @type {string}
+	 */
   export let pid;
   let currentIcon = defaultIcon;
 
@@ -50,19 +53,21 @@
 
   .pickerContainer {
     position: absolute;
-    top: 360px;
   }
 
   .icon {
     display: inline-block;
-    height: 24px;
-    text-align: center;
-    line-height: 24px;
-    width: 24px;
-    border: 1px solid #ccc;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    bottom: 2px;
+    border: 1px solid #000;
     border-radius: 50%;
-    margin-right: 8px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
   }
-
-  
+  .icon:hover {
+    background-color: #fff;
+  }
 </style>
