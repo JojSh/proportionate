@@ -30,7 +30,7 @@
     <input type=number bind:value={a} min=1 max=20>
       <div class='result-container'>
         <span class='result'>{a}</span>
-        <span class='unit-measure'>ml</span>
+        <span class='unit-measure'>g</span>
       </div>
     <br>
     <span class='icon'></span>
