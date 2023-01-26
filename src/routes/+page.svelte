@@ -1,4 +1,6 @@
-<script>
+<script>  
+  import EmojiIcon from "./EmojiIcon.svelte";
+
 	let a = 10
   $:bMultiplier = 9.1
   $:cMultiplier = 8
@@ -12,7 +14,6 @@
     if (value == Math.round(value)) return value
     return value.toFixed(2)
   }
-
 </script>
 
 <svelte:head>
@@ -22,9 +23,10 @@
 
 <section>
   <h1>Proportionate</h1>
-  <br><br><br>
+  <br>
 	<label>
-    <span class='icon'>a</span>
+    <EmojiIcon defaultIcon={'☕️'} pid={'a'} />
+
     <input type=number bind:value={a} min=1 max=20>
       <div class='result-container'>
         <span class='result'>{a}</span>
@@ -36,16 +38,17 @@
   </label>
   
   <label>
-    <span class='icon'>b</span>
+    <EmojiIcon defaultIcon={'💧'} pid={'b'}/>
+    
     <input type=number bind:value={bMultiplier} min=1 max=200>
-      <div class='result-container'>
+    <div class='result-container'>
         <span class='result'>{b || 0}</span>
         <span class='unit-measure'>ml</span>
       </div>
   </label>
 
   <label>
-    <span class='icon'>c</span>
+    <EmojiIcon defaultIcon={'🥛'} pid={'c'}/>
     <input type=number bind:value={cMultiplier} min=0 max=200>
       <div class='result-container'>
         <span class='result'>{c || 0}</span>
@@ -59,14 +62,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 0.6;
-    width: 240px;
+    flex: 0.2;
+    width: 300px;
     margin: 0 auto;
 	}
 
 	h1 {
 		width: 100%;
 	}
+
+  .hidden {
+    display: none;
+  }
+
+  .pickerContainer {
+    position: absolute;
+    top: 360px;
+  }
 
   .result-container {
     display: inline-flex;

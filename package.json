@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/fira-mono": "^4.5.10"
+		"@fontsource/fira-mono": "^4.5.10",
+		"picmo": "^5.7.2"
 	}
 }
