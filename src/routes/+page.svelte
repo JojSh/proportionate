@@ -1,10 +1,13 @@
 <script>
-	let a = 1
-  $:bMultiplier = 10
+	let a = 10
+  $:bMultiplier = 9.1
   $:cMultiplier = 8
 	$:b = limitTo2DP(a * bMultiplier)
 	$:c = limitTo2DP(a * cMultiplier)
 
+  /**
+	 * @param {number} value
+	 */
   function limitTo2DP (value) {
     if (value == Math.round(value)) return value
     return value.toFixed(2)
@@ -18,25 +21,36 @@
 </svelte:head>
 
 <section>
+  <h1>Proportionate</h1>
+  <br><br><br>
 	<label>
     <span class='icon'>a</span>
-    <input type=number bind:value={a} min=0 max=20>
-      <div class='result-container'><span class='result'>{a}</span></div>
+    <input type=number bind:value={a} min=1 max=20>
+      <div class='result-container'>
+        <span class='result'>{a}</span>
+        <span class='unit-measure'>ml</span>
+      </div>
     <br>
     <span class='icon'></span>
-    <input type=range bind:value={a} min=0 max=20>
+    <input type=range bind:value={a} min=1 max=20>
   </label>
   
   <label>
     <span class='icon'>b</span>
-    <input type=number bind:value={bMultiplier} min=0 max=200>
-      <div class='result-container'><span class='result'>{b || 0}</span></div>
+    <input type=number bind:value={bMultiplier} min=1 max=200>
+      <div class='result-container'>
+        <span class='result'>{b || 0}</span>
+        <span class='unit-measure'>ml</span>
+      </div>
   </label>
 
   <label>
     <span class='icon'>c</span>
     <input type=number bind:value={cMultiplier} min=0 max=200>
-      <div class='result-container'><span class='result'>{c || 0}</span></div>
+      <div class='result-container'>
+        <span class='result'>{c || 0}</span>
+        <span class='unit-measure'>ml</span>
+      </div>
   </label>
 </section>
 
@@ -77,9 +91,14 @@
     margin-left: 8px;
     border: 1px solid #000000;
     width: fit-content;
-    min-width: 24px;
+    min-width: 48px;
     border-radius: 12px;
     padding: 2px 8px;
+  }
+
+  .unit-measure {
+    line-height: 38px;
+    margin-left: 4px;
   }
 
   input {
