@@ -3,12 +3,18 @@
 	import Ingredient from "./Ingredient.svelte";
 
 	let baseValue = 10
-</script>
+  const ingredients = [
+    {
+      initIcon: '💧',
+      initMultiplier: 9.1
+    },
+    {
+      initIcon: '🥛',
+      initMultiplier: 8
+    }
+  ]
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Proportionate POC app" />
-</svelte:head>
+</script>
 
 <section>
   <h1>Proportionate</h1>
@@ -16,7 +22,7 @@
 
 	<div class='ingredient-row'>
     <Ingredient baseValue={baseValue} isBase={true} unit={'g'}/>
-    <EmojiIcon defaultIcon={'☕️'} ingId={'a'} />
+    <EmojiIcon initIcon={'☕️'} ingId={'base'} />
   </div>
 
   <div class='slider'>
@@ -24,15 +30,12 @@
   </div>
   <br>
 
-  <div class='ingredient-row'>
-    <Ingredient baseValue={baseValue} presetMultiplier={9.1}/>
-    <EmojiIcon defaultIcon={'💧'} ingId={'b'} />
-  </div>
-
-  <div class='ingredient-row'>
-    <Ingredient baseValue={baseValue} presetMultiplier={8}/>
-    <EmojiIcon defaultIcon={'🥛'} ingId={'c'} />
-  </div>
+  {#each ingredients as ingredient, i}
+    <div class='ingredient-row'>
+      <Ingredient baseValue={baseValue} initMultiplier={ingredient.initMultiplier}/>
+      <EmojiIcon initIcon={ingredient.initIcon} ingId={String(i)} />
+    </div>
+  {/each}
 </section>
 
 <style>

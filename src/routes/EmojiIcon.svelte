@@ -2,12 +2,12 @@
   import { onMount } from 'svelte';
   import { createPicker } from 'picmo';
 
-  export let defaultIcon;
+  export let initIcon;
   /**
 	 * @type {string}
 	 */
   export let ingId;
-  let currentIcon = defaultIcon;
+  let currentIcon = initIcon;
 
   function handleIconClick() {
     console.log('here')

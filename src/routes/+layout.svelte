@@ -2,6 +2,11 @@
 	import './styles.css';
 </script>
 
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Proportionate POC app" />
+</svelte:head>
+
 <div class="app">
 	<main>
 		<slot />

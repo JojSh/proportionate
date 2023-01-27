@@ -3,10 +3,10 @@
 
   export let isBase = false
   export let baseValue
-  export let presetMultiplier
+  export let initMultiplier
   export let unit = 'ml'
 
-  $:multiplier = isBase ? baseValue : presetMultiplier;
+  $:multiplier = isBase ? baseValue : initMultiplier;
   $:result = isBase ? baseValue : limitTo2DP(baseValue * multiplier);
 
   /**
