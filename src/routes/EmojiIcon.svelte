@@ -6,17 +6,17 @@
   /**
 	 * @type {string}
 	 */
-  export let pid;
+  export let ingId;
   let currentIcon = defaultIcon;
 
   function handleIconClick() {
     console.log('here')
-    const container = document.querySelector(`.pickerContainer.pid-${pid}`);
+    const container = document.querySelector(`.pickerContainer.ingId-${ingId}`);
     if (container) container.classList.toggle('hidden');
   }
 
   onMount(() => {
-    const pickerContainer = document.querySelector(`.pickerContainer.pid-${pid}`);
+    const pickerContainer = document.querySelector(`.pickerContainer.ingId-${ingId}`);
     const picker = createPicker({
       rootElement: pickerContainer
     });
@@ -30,14 +30,9 @@
   })
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Proportionate POC app" />
-</svelte:head>
-
 <div>
   <span class='icon' on:click={handleIconClick}>{currentIcon}</span>
-  <span class='pickerContainer pid-{pid} hidden'></span>
+  <span class='pickerContainer ingId-{ingId} hidden'></span>
 </div>
 
 
